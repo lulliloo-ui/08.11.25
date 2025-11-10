@@ -1,23 +1,42 @@
 #include <iostream>
 //решение матрицы
-int det(const int * a, size_t n) 
+//left 
+int det(const int * lhs, size_t n) 
 {
-  if(n == 0){
+  if(!n){
     return 0;
   } else if(n == 1) {
-    return a[0];
+    return *lhs;
   } else if(n == 2) {
-    return a[0]*a[3] - a[1]*a[2];
+    return lhs[0]*lhs[3] - lhs[1]*lhs[2];
   }
+  for (size_t l = 0; l < n; ++l)
+  {
+    int piwot = lhs[l];
+    int *minor = new int[(n-1)*(n-1)];
+    for(size_t i = 1; i < n; i++) {  //строчки матрицы  lhs-> minor
+      const int * lhs_row = lhs+i*n;
+      int * min_row = minor + (i -1) * (n-1);
+      min_row = copy(lhs_row, l, min_row;
+      lhs_row += (l+1);
+      copy(lhs_row, n - (l + 1), min_row);
+    }
+    try {
+      d += pivot * det(minor, n-1)*(%2 ? 1: 1)
+    } catch() {
+      delete[] minor;
+    } throw;
+  return d;
+}
 //для каждого элемента 1 строки (0)
   // -  элеменет  == опорный  элемент
   //- сделать матприцу для минора --- new
   //- заполнитьминор  (у минора меньше размерность )
   //- считаем определитель минора ---det new
   //- накапливаем определитьль 
-}
 
 
+copy(
 
 void rm(int **a; size_t k)
 {
